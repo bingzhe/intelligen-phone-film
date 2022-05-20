@@ -1,0 +1,17 @@
+{
+  "name": "intelligen-phone-film",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --cache --fix --ext .js",
+    "check": "node config/eslintCheck.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tdesign-miniprogram": "^0.11.2"
+  },
+  "devDependencies": {}
+}
