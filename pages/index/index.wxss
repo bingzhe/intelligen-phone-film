@@ -133,6 +133,7 @@
 .film-icon-wrapper .goods-img {
   width: 130rpx;
   height: 130rpx;
+  border-radius: 8rpx;
   margin: 0 10rpx;
 }
 .film-icon-wrapper .goods-name {
