@@ -45,6 +45,8 @@ Page({
     this.setData({
       tabList: result.data,
     });
+
+    this.getGoodsList();
   },
   async getGoodsList() {
     const data = {
