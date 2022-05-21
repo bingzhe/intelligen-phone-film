@@ -20,10 +20,45 @@
 
 .swiper-wrap {
   /* margin-top: 20rpx; */
+  margin: 0 30rpx 20rpx;
+}
+
+.t-swiper {
+  height: 240px;
 }
 
 .t-image__swiper {
   width: 100%;
-  height: 300rpx;
-  border-radius: 10rpx;
+  height: 240rpx;
+  border-radius: 20rpx;
+}
+
+.phone-modal-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30rpx 20rpx;
+  height: 50rpx;
+}
+
+.phone-modal-wrapper .modal-wrapper {
+  display: flex;
+}
+
+.phone-modal-wrapper .modal-wrapper .tag {
+  font-size: 12px;
+  background: red;
+  color: #fff;
+  padding: 5rpx 10rpx;
+  border-radius: 6rpx;
+  margin-right: 10rpx;
+}
+
+.phone-modal-wrapper .icon-wrapper {
+  display: flex;
+}
+
+.phone-modal-wrapper .icon-wrapper text {
+  font-size: 14px;
+  color: #999;
 }

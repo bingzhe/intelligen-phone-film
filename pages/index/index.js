@@ -40,6 +40,8 @@ Page({
     interval: 5000,
     navigation: { type: "dots" },
 
+    phoneModal: "phone",
+
     motto: "Hello World",
     userInfo: {},
     hasUserInfo: false,

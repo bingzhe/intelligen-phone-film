@@ -5,6 +5,7 @@
     "t-swiper-nav": "tdesign-miniprogram/swiper/swiper-nav",
     "t-image": "tdesign-miniprogram/image/image",
     "t-tabs": "tdesign-miniprogram/tabs/tabs",
-    "t-tab-panel": "tdesign-miniprogram/tabs/tab-panel"
+    "t-tab-panel": "tdesign-miniprogram/tabs/tab-panel",
+    "t-icon": "tdesign-miniprogram/icon/icon"
   }
 }

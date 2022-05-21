@@ -6,3 +6,17 @@
     </t-swiper-item>
   </t-swiper>
 </view>
+
+
+<view class="phone-modal-wrapper">
+  <view class="modal-wrapper">
+    <text class="tag">本机</text>
+    <text class="modal">{{phoneModal}}</text>
+  </view>
+  <view class="icon-wrapper">
+    <text>查看对应的贴膜</text>
+    <t-icon name="chevron-right" size="xl" color="#999" />
+  </view>
+</view>
+
+<view class="tabs-wrapper"></view>
