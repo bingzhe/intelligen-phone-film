@@ -37,8 +37,10 @@
 <view class="film-list-wrapper">
   <view class="film-item" wx:for="{{list}}" wx:key="index">
     <view class="film-icon-wrapper">
-      <t-image t-class="goods-img" src="{{item.goods_img}}"></t-image>
-      <view class="goods-name">{{item.goods_name}}</view>
+      <view>
+        <t-image t-class="goods-img" src="http://120.76.132.111/{{item.goods_img}}"></t-image>
+        <view class="goods-name">{{item.goods_name}}</view>
+      </view>
     </view>
     <view class="film-content">
       <view class="film-title">{{item.cate_name}}</view>

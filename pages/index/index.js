@@ -1,13 +1,12 @@
 // index.js
 // 获取应用实例
-const app = getApp();
 import { getCateListApi, getGoodsListApi } from "../../api/api";
 
 Page({
   data: {
     imgSrcs: [
       {
-        img: "https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner1.png",
+        img: "https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner3.png",
         text: "1",
       },
       {
