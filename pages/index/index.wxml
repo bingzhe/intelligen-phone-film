@@ -13,10 +13,46 @@
     <text class="tag">本机</text>
     <text class="modal">{{phoneModal}}</text>
   </view>
-  <view class="icon-wrapper">
+  <view class="icon-wrapper" bind:tap="handleSearchCus">
     <text>查看对应的贴膜</text>
     <t-icon name="chevron-right" size="xl" color="#999" />
   </view>
 </view>
 
-<view class="tabs-wrapper"></view>
+<view class="search-wrapper">
+  <t-search model:value="{{searchValue}}" t-class-input="t-search__input"
+    t-class-input-container="t-search__input-container" placeholder="请输入手机型号">
+    <t-button theme="primary" slot="action-text" t-class="search-button" bind:tap="handleSearchClick">搜索</t-button>
+  </t-search>
+</view>
+
+<view class="tabs-wrapper">
+  <t-tabs t-class="t-tabs" t-class-active="t-class-item" t-class-track="t-class-track" defaultValue="{{1}}"
+    bind:change="tabChangeHandle">
+    <t-tab-panel wx:for="{{tabList}}" wx:for-index="index" wx:key="index" label="{{item.cate_name}}"
+      value="{{item.cate_id}}" />
+  </t-tabs>
+</view>
+
+<view class="film-list-wrapper">
+  <view class="film-item" wx:for="{{list}}" wx:key="index">
+    <view class="film-icon-wrapper">
+      <t-image t-class="goods-img" src="{{item.goods_img}}"></t-image>
+      <view class="goods-name">{{item.goods_name}}</view>
+    </view>
+    <view class="film-content">
+      <view class="film-title">{{item.cate_name}}</view>
+      <view class="phone-modal-list">
+        <view class="modal {{modal.is_checked == 1 ? 'select' :''}}" wx:for="{{item.spec_list}}" wx:for-item="modal"
+          wx:key="index">
+          {{modal.spec_name}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="film-list-empty" wx:if="{{list.length === 0}}">
+  <t-image src="../../../assets/images/empty-list.png" t-class="empty-class"></t-image>
+  <view class="empty-tip">暂无该手机型号膜</view>
+</view>
