@@ -1,6 +1,11 @@
 // index.js
 // 获取应用实例
-import { getCateListApi, getGoodsListApi } from "../../api/api";
+import {
+  rootUrl,
+  getCateListApi,
+  getGoodsListApi,
+  getBannerListApi,
+} from "../../api/api";
 
 Page({
   data: {
@@ -35,6 +40,7 @@ Page({
   onLoad() {
     this.getDeviceInfo();
     this.getCateList();
+    this.getBannerList();
   },
   async getCateList() {
     const result = await getCateListApi();
@@ -67,12 +73,36 @@ Page({
       list: result.data,
     });
   },
-  getDeviceInfo() {
-    const deviceInfo = wx.getDeviceInfo();
-    const { model } = deviceInfo;
+  async getBannerList() {
+    const result = await getBannerListApi();
+    if (result.code !== 200) return;
 
-    this.setData({ phoneModal: model });
+    const list = (result.data || []).map((item) => {
+      return {
+        ...item,
+        img: `${rootUrl}${item.img_url}`,
+        text: item.id,
+      };
+    });
+
+    this.setData({
+      imgSrcs: list,
+    });
   },
+  getDeviceInfo() {
+    const that = this;
+    wx.getSystemInfoAsync({
+      success(res) {
+        that.setData({ phoneModal: res.model });
+      },
+    });
+
+    // const deviceInfo = wx.getDeviceInfo();
+
+    // const { model } = deviceInfo;
+    // this.setData({ phoneModal: model });
+  },
+
   handleSearchClick() {
     this.setData({
       searchType: 1,

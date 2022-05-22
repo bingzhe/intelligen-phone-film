@@ -143,6 +143,11 @@
   word-break: break-all;
   text-align: center;
   font-size: 14px;
+  /* border: 1px solid #0052d9; */
+  color: #fff;
+  background: #ff5454;
+  border-radius: 8rpx;
+  padding: 8rpx;
 }
 
 .film-content {
