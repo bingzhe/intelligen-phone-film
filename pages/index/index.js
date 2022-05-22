@@ -7,6 +7,8 @@ import {
   getBannerListApi,
 } from "../../api/api";
 
+import { devicesList } from "../../assets/js/devices.js";
+
 Page({
   data: {
     imgSrcs: [
@@ -38,6 +40,7 @@ Page({
     searchType: 1, // 1 输入框查询 2 本机查询
   },
   onLoad() {
+    console.log(devicesList);
     this.getDeviceInfo();
     this.getCateList();
     this.getBannerList();
@@ -90,17 +93,19 @@ Page({
     });
   },
   getDeviceInfo() {
-    const that = this;
-    wx.getSystemInfoAsync({
-      success(res) {
-        that.setData({ phoneModal: res.model });
-      },
+    const deviceInfo = wx.getDeviceInfo();
+
+    let model = deviceInfo.model;
+
+    const deviceModel = devicesList.find((item) => {
+      return item.model == "Light A103";
     });
 
-    // const deviceInfo = wx.getDeviceInfo();
+    if (deviceModel) {
+      model = deviceModel.model ? deviceModel.market_name : model;
+    }
 
-    // const { model } = deviceInfo;
-    // this.setData({ phoneModal: model });
+    this.setData({ phoneModal: model });
   },
 
   handleSearchClick() {
