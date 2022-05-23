@@ -5,21 +5,16 @@ import {
   getCateListApi,
   getGoodsListApi,
   getBannerListApi,
+  getPhoneNameApi,
 } from "../../api/api";
-
-import { devicesList } from "../../assets/js/devices.js";
 
 Page({
   data: {
     imgSrcs: [
-      {
-        img: "https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner3.png",
-        text: "1",
-      },
-      {
-        img: "https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner2.png",
-        text: "2",
-      },
+      // {
+      //   img: "https://cdn-we-retail.ym.tencent.com/tsr/home/v2/banner3.png",
+      //   text: "1",
+      // },
     ],
     tabList: [],
     list: [],
@@ -38,9 +33,10 @@ Page({
     searchValue: "",
 
     searchType: 1, // 1 输入框查询 2 本机查询
+
+    rootUrl: rootUrl,
   },
   onLoad() {
-    console.log(devicesList);
     this.getDeviceInfo();
     this.getCateList();
     this.getBannerList();
@@ -92,20 +88,20 @@ Page({
       imgSrcs: list,
     });
   },
-  getDeviceInfo() {
+  async getDeviceInfo() {
     const deviceInfo = wx.getDeviceInfo();
 
     let model = deviceInfo.model;
 
-    const deviceModel = devicesList.find((item) => {
-      return item.model == "Light A103";
-    });
+    const params = {
+      name: model,
+    };
 
-    if (deviceModel) {
-      model = deviceModel.model ? deviceModel.market_name : model;
-    }
+    const result = await getPhoneNameApi(params);
 
-    this.setData({ phoneModal: model });
+    const phoneModal = result.data ? result.data : model;
+
+    this.setData({ phoneModal: phoneModal });
   },
 
   handleSearchClick() {

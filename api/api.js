@@ -13,10 +13,16 @@ const getGoodsListApi = (data) => {
 const getBannerListApi = () => {
   return request(`${rootUrl}/api/Index/getBanner`, {}, "get");
 };
+const getPhoneNameApi = (data) => {
+  return request(`${rootUrl}/api/Index/getPhoneName`, data, "post", {
+    contentType: "form",
+  });
+};
 
 module.exports = {
   rootUrl,
   getCateListApi,
   getGoodsListApi,
   getBannerListApi,
+  getPhoneNameApi,
 };
