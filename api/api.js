@@ -1,4 +1,4 @@
-const rootUrl = "http://120.76.132.111";
+const rootUrl = "https://kamoniu.shouchuangtx.cn";
 
 import { request } from "./request";
 
