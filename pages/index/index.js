@@ -92,6 +92,14 @@ Page({
     const deviceInfo = wx.getDeviceInfo();
 
     let model = deviceInfo.model;
+    const system = deviceInfo.system;
+
+    
+    //如果是ios,单独处理下里面的尖括号
+    let ios = !!(system.toLowerCase().search("ios") + 1);
+    if (ios) {
+      model = model.replace(/<(\S*?)>/gm, "");
+    }
 
     const params = {
       name: model,
