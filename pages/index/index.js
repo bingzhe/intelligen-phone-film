@@ -94,10 +94,13 @@ Page({
     let model = deviceInfo.model;
     const system = deviceInfo.system;
 
-    
+    //单独处理 iPhone XS Max China-exclusive<iPhone11,6>
+    model = model.replace(/China-exclusive/gm, "");
+
     //如果是ios,单独处理下里面的尖括号
     let ios = !!(system.toLowerCase().search("ios") + 1);
     if (ios) {
+      model = model.replace(/\((\S*?)\)<(\S*?)>/gm, "");
       model = model.replace(/<(\S*?)>/gm, "");
     }
 

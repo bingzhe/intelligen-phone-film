@@ -1,4 +1,4 @@
-const rootUrl = "https://kamoniu.shouchuangtx.cn"; //卡陌牛
+const rootUrl = "https://kamoniu.shouchuangtx.cn"; //卡陌牛 wxb68105ba7874703c
 // const rootUrl = "http://120.76.132.111"; //科迪亚
 
 
