@@ -1,5 +1,5 @@
-// const rootUrl = "https://kamoniu.shouchuangtx.cn"; //卡陌牛
-const rootUrl = "http://120.76.132.111"; //科迪亚
+const rootUrl = "https://kamoniu.shouchuangtx.cn"; //卡陌牛
+// const rootUrl = "http://120.76.132.111"; //科迪亚
 
 
 import { request } from "./request";
