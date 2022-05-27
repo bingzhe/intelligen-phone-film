@@ -1,5 +1,7 @@
+// 每次修改 appid title url 后台添加调用的https
 // const rootUrl = "https://kamoniu.shouchuangtx.cn"; //卡陌牛 wxb68105ba7874703c
-const rootUrl = "https://kediya.5aiyin.com"; //科迪亚 wxdfe38c922cea1383
+// const rootUrl = "https://kediya.5aiyin.com"; //科迪亚 wxdfe38c922cea1383
+const rootUrl = "https://muwa.5aiyin.com" //M.SIR大猩猩钢化膜(牧娃光电) wx41c12753b533b095 
 
 import { request } from "./request";
 
