@@ -41,6 +41,16 @@ Page({
     this.getCateList();
     this.getBannerList();
   },
+  onShareAppMessage() {
+    // return {
+    //   title: '卡陌牛 卡陌牛守护您的爱机',
+    // }
+  },
+  onShareTimeline() {
+    // return {
+    //   title: '卡陌牛 卡陌牛守护您的爱机',
+    // }
+  },
   async getCateList() {
     const result = await getCateListApi();
 
