@@ -1,5 +1,5 @@
 // const rootUrl = "https://kamoniu.shouchuangtx.cn"; //卡陌牛 wxb68105ba7874703c
-const rootUrl = "http://kediya.5aiyin.com"; //科迪亚 wxdfe38c922cea1383
+const rootUrl = "https://kediya.5aiyin.com"; //科迪亚 wxdfe38c922cea1383
 
 import { request } from "./request";
 
