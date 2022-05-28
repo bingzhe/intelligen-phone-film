@@ -17,8 +17,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 30rpx 0;
-  height: 50rpx;
+  margin: 20rpx 30rpx;
+  /* height: 50rpx; */
 }
 
 .phone-modal-wrapper .modal-wrapper {
@@ -187,4 +187,9 @@
 }
 .film-list-empty .empty-tip {
   color: #999;
+}
+
+.search-cus-button {
+  background: #0594fa !important;
+  border-color: #0594fa !important;
 }

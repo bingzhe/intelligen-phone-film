@@ -32,7 +32,7 @@ Page({
 
     searchValue: "",
 
-    searchType: 1, // 1 输入框查询 2 本机查询
+    searchType: 2, // 1 输入框查询 2 本机查询
 
     rootUrl: rootUrl,
   },
@@ -42,14 +42,14 @@ Page({
     this.getBannerList();
   },
   onShareAppMessage() {
-    // return {
-    //   title: '卡陌牛 卡陌牛守护您的爱机',
-    // }
+    return {
+      title: '卡陌牛 卡陌牛守护您的爱机',
+    }
   },
   onShareTimeline() {
-    // return {
-    //   title: '卡陌牛 卡陌牛守护您的爱机',
-    // }
+    return {
+      title: '卡陌牛 卡陌牛守护您的爱机',
+    }
   },
   async getCateList() {
     const result = await getCateListApi();

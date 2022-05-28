@@ -14,8 +14,9 @@
     <text class="modal">{{phoneModal}}</text>
   </view>
   <view class="icon-wrapper" bind:tap="handleSearchCus">
-    <text>查看对应的贴膜</text>
-    <t-icon name="chevron-right" size="xl" color="#999" />
+    <t-button theme="primary" theme="danger" t-class="search-cus-button" bind:tap="handleSearchCus" icon="search">
+      查看对应的贴膜</t-button>
+    <!-- <t-icon name="chevron-right" size="xl" color="#999" /> -->
   </view>
 </view>
 
