@@ -5,7 +5,11 @@
 // const rootUrl = "http://120.76.132.111" //4 xooxi 小犀 (xooxi 小犀) wx1008b8937e936d05 
 // const rootUrl = "http://120.76.132.111:39001" //5 鲁利亚 (鲁利亚数码科技) wx76e8697154f174d5 
 // const rootUrl = "http://120.76.132.111:39232" //6 通用大全 (手机钢化膜通用大全) wx93d526d75a650990 
-const rootUrl = "http://120.76.132.111:39856" //7 蓝小猩保护膜 (蓝小猩保护膜) wx1596a7a03d23a332 
+// const rootUrl = "http://120.76.132.111:39856" //7 蓝小猩保护膜 (蓝小猩保护膜) wx1596a7a03d23a332 
+// const rootUrl = "http://120.76.132.111:39888" //8 鑫桦宇数码科技 (鑫桦宇数码科技有限公司) wx75f72a7a5f898669 
+const rootUrl = "http://120.76.132.111:39555" //9 和兴电子科技 (和兴电子科技) wx157122f47fc97d44 
+
+
 
 
 import { request } from "./request";
