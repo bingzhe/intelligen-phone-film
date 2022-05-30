@@ -60,6 +60,14 @@ Page({
       tabList: result.data,
     });
 
+    const firstCateId = (result.data[0] || {}).cate_id;
+
+    if (firstCateId) {
+      this.setData({
+        tabIndex: firstCateId,
+      });
+    }
+
     this.getGoodsList();
   },
   async getGoodsList() {
