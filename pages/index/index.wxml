@@ -40,7 +40,7 @@
     <view class="film-icon-wrapper">
       <view>
         <t-image t-class="goods-img" src="{{rootUrl}}{{item.goods_img}}"></t-image>
-        <!-- <view class="goods-name">{{item.goods_name}}</view> -->
+        <view class="goods-name">{{item.goods_name}}</view>
       </view>
     </view>
     <view class="film-content">
