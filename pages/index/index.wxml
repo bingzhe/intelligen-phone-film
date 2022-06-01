@@ -27,20 +27,20 @@
   </t-search>
 </view>
 
-<view class="tabs-wrapper">
+<!-- <view class="tabs-wrapper">
   <t-tabs t-class="t-tabs" t-class-active="t-class-item" t-class-track="t-class-track" value="{{tabIndex}}"
     bind:change="tabChangeHandle">
     <t-tab-panel wx:for="{{tabList}}" wx:for-index="index" wx:key="index" label="{{item.cate_name}}"
       value="{{item.cate_id}}" />
   </t-tabs>
-</view>
+</view> -->
 
 <view class="film-list-wrapper">
   <view class="film-item" wx:for="{{list}}" wx:key="index">
     <view class="film-icon-wrapper">
       <view>
         <t-image t-class="goods-img" src="{{rootUrl}}{{item.goods_img}}"></t-image>
-        <view class="goods-name">{{item.goods_name}}</view>
+        <!-- <view class="goods-name">{{item.goods_name}}</view> -->
       </view>
     </view>
     <view class="film-content">

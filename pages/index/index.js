@@ -72,7 +72,7 @@ Page({
   },
   async getGoodsList() {
     const data = {
-      cate_id: this.data.tabIndex,
+      // cate_id: this.data.tabIndex,
     };
 
     if (this.data.searchType == 1 && this.data.searchValue) {
