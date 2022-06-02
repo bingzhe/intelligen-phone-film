@@ -6,6 +6,7 @@ import {
   getGoodsListApi,
   getBannerListApi,
   getPhoneNameApi,
+  getGoodsCateApi,
 } from "../../api/api";
 
 Page({
@@ -36,10 +37,11 @@ Page({
 
     rootUrl: rootUrl,
   },
-  onLoad() {
-    this.getDeviceInfo();
+  async onLoad() {
+    await this.getDeviceInfo();
     this.getCateList();
     this.getBannerList();
+    this.getGoodsCate();
   },
   onShareAppMessage() {
     // return {
@@ -51,6 +53,27 @@ Page({
     //   title: '卡陌牛 卡陌牛守护您的爱机',
     // }
   },
+  async getGoodsCate() {
+    const data = {};
+
+    if (this.data.searchType == 1 && this.data.searchValue) {
+      data.name = this.data.searchValue;
+    }
+
+    if (this.data.searchType == 2 && this.data.phoneModal) {
+      data.name = this.data.phoneModal;
+    }
+
+    const result = await getGoodsCateApi(data);
+    console.log(result);
+    if (result.code !== 200) return;
+
+    this.setData({
+      tabIndex: result.data,
+    });
+
+    this.getGoodsList();
+  },
   async getCateList() {
     const result = await getCateListApi();
 
@@ -60,19 +83,19 @@ Page({
       tabList: result.data,
     });
 
-    const firstCateId = (result.data[0] || {}).cate_id;
+    // const firstCateId = (result.data[0] || {}).cate_id;
 
-    if (firstCateId) {
-      this.setData({
-        tabIndex: firstCateId,
-      });
-    }
+    // if (firstCateId) {
+    //   this.setData({
+    //     tabIndex: firstCateId,
+    //   });
+    // }
 
-    this.getGoodsList();
+    // this.getGoodsList();
   },
   async getGoodsList() {
     const data = {
-      // cate_id: this.data.tabIndex,
+      cate_id: this.data.tabIndex,
     };
 
     if (this.data.searchType == 1 && this.data.searchValue) {

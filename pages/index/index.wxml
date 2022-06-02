@@ -14,8 +14,8 @@
     <text class="modal">{{phoneModal}}</text>
   </view>
   <view class="icon-wrapper" bind:tap="handleSearchCus">
-    <t-button theme="primary" theme="danger" t-class="search-cus-button" bind:tap="handleSearchCus" icon="search">
-      查看对应的贴膜</t-button>
+    <t-button theme="primary" theme="danger" t-class="search-cus-button" bind:tap="handleSearchCus" icon="arrow-down">
+      对应的贴膜</t-button>
     <!-- <t-icon name="chevron-right" size="xl" color="#999" /> -->
   </view>
 </view>
@@ -27,13 +27,13 @@
   </t-search>
 </view>
 
-<!-- <view class="tabs-wrapper">
+<view class="tabs-wrapper">
   <t-tabs t-class="t-tabs" t-class-active="t-class-item" t-class-track="t-class-track" value="{{tabIndex}}"
     bind:change="tabChangeHandle">
     <t-tab-panel wx:for="{{tabList}}" wx:for-index="index" wx:key="index" label="{{item.cate_name}}"
       value="{{item.cate_id}}" />
   </t-tabs>
-</view> -->
+</view>
 
 <view class="film-list-wrapper">
   <view class="film-item" wx:for="{{list}}" wx:key="index">
