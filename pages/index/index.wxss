@@ -197,3 +197,17 @@
   background: #0594fa !important;
   border-color: #0594fa !important;
 }
+
+.search-list-wrapper {
+  margin: 0 30rpx;
+}
+
+.search-list-wrapper .search-name-item {
+  font-size: 14px;
+  line-height: 60rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.search-list-wrapper .is-color {
+  color: red;
+}

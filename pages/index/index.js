@@ -7,6 +7,7 @@ import {
   getBannerListApi,
   getPhoneNameApi,
   getGoodsCateApi,
+  getNameListApi,
 } from "../../api/api";
 
 Page({
@@ -36,6 +37,10 @@ Page({
     searchType: 2, // 1 输入框查询 2 本机查询
 
     rootUrl: rootUrl,
+
+    searchNameList: [],
+
+    showTabs: true,
   },
   async onLoad() {
     await this.getDeviceInfo();
@@ -65,7 +70,7 @@ Page({
     }
 
     const result = await getGoodsCateApi(data);
-    console.log(result);
+    // console.log(result);
     if (result.code !== 200) return;
 
     this.setData({
@@ -171,5 +176,54 @@ Page({
   tabChangeHandle(e) {
     this.setData({ tabIndex: e.detail.value });
     this.getGoodsList();
+  },
+  handleSearchClear() {
+    this.setData({
+      searchNameList: [],
+      showTabs: true,
+    });
+  },
+  async handleSearchChange(e) {
+    const name = e.detail.value;
+
+    if (name) {
+      this.setData({
+        showTabs: false,
+      });
+    } else {
+      this.setData({
+        showTabs: true,
+      });
+    }
+
+    const params = { name };
+
+    const result = await getNameListApi(params);
+    if (result.code !== 200) return;
+
+    const getInf = (str, key) =>
+      str.replace(new RegExp(`${key}`, "g"), `%%${key}%%`).split("%%");
+
+    const nameList = result.data.map((item) => {
+      return getInf(item, this.data.searchValue);
+    });
+
+    this.setData({
+      searchNameList: nameList,
+    });
+  },
+  handleSearchNameItemClick(e) {
+    const nameArr = e.currentTarget.dataset.name || [];
+    const name = nameArr.join("");
+
+    this.setData({
+      searchValue: name,
+      showTabs: true,
+    });
+
+    this.setData({
+      searchType: 1,
+    });
+    this.getGoodsCate();
   },
 });

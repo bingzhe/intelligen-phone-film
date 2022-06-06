@@ -16,7 +16,7 @@ const getCateListApi = () => {
   return request(`${rootUrl}/api/Goods/getCateList`, {}, "get");
 };
 const getGoodsListApi = (data) => {
-  return request(`${rootUrl}/api/Goods/getGoodsList1`, data, "post", {
+  return request(`${rootUrl}/api/Goods/getGoodsList`, data, "post", {
     contentType: "form",
   });
 };
@@ -36,6 +36,12 @@ const getPhoneNameApi = (data) => {
   });
 };
 
+const getNameListApi = (data) => {
+  return request(`${rootUrl}/api/Goods/getNameList`, data, "post", {
+    contentType: "form",
+  });
+};
+
 module.exports = {
   rootUrl,
   getCateListApi,
@@ -43,4 +49,5 @@ module.exports = {
   getBannerListApi,
   getPhoneNameApi,
   getGoodsCateApi,
+  getNameListApi,
 };
