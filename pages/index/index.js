@@ -202,7 +202,7 @@ Page({
     if (result.code !== 200) return;
 
     const getInf = (str, key) =>
-      str.replace(new RegExp(`${key}`, "g"), `%%${key}%%`).split("%%");
+      str.replace(new RegExp(`${key}`, "gi"), `%%$&%%`).split("%%");
 
     const nameList = result.data.map((item) => {
       return getInf(item, this.data.searchValue);

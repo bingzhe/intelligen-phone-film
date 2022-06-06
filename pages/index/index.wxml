@@ -1,3 +1,5 @@
+<wxs module="filter" src="./toLowerCase.wxs"></wxs>
+
 <view class="swiper-wrap">
   <t-swiper wx:if="{{imgSrcs.length > 0}}" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}"
     interval="{{interval}}" navigation="{{navigation}}">
@@ -31,7 +33,7 @@
 <view wx:if="{{!showTabs}}" class="search-list-wrapper">
   <view wx:for="{{searchNameList}}" wx:for-item="name" class="search-name-item" bind:tap="handleSearchNameItemClick"
     data-name="{{name}}">
-    <text wx:for="{{name}}" class="{{item==searchValue?'is-color':''}}">{{item}}</text>
+    <text wx:for="{{name}}" class="{{filter.toLowerCase(item)===filter.toLowerCase(searchValue)?'is-color':''}}">{{item}}</text>
   </view>
 </view>
 
