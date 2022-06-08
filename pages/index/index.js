@@ -137,8 +137,15 @@ Page({
   async getDeviceInfo() {
     const deviceInfo = wx.getDeviceInfo();
 
+    console.log("===========devicecInfo==========");
+    console.log(JSON.stringify(deviceInfo));
+
     let model = deviceInfo.model;
     const system = deviceInfo.system;
+
+    console.log("===========model,system==========");
+    console.log(JSON.stringify(model));
+    console.log(JSON.stringify(system));
 
     //单独处理 iPhone XS Max China-exclusive<iPhone11,6>
     model = model.replace(/China-exclusive/gm, "");
@@ -153,10 +160,18 @@ Page({
     const params = {
       name: model,
     };
+    console.log("===========查机型接口 params==========");
+    console.log(JSON.stringify(params));
 
     const result = await getPhoneNameApi(params);
 
+    console.log("===========查机型接口 result==========");
+    console.log(JSON.stringify(result));
+
     const phoneModal = result.data ? result.data : model;
+
+    console.log("===========phoneModal==========");
+    console.log(JSON.stringify(phoneModal));
 
     this.setData({ phoneModal: phoneModal });
   },
