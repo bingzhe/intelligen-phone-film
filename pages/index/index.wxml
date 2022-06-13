@@ -29,7 +29,7 @@
 
 <view class="tabs-wrapper">
   <t-tabs t-class="t-tabs" t-class-active="t-class-item" t-class-track="t-class-track" value="{{tabIndex}}"
-    bind:change="tabChangeHandle">
+    show-bottom-line="{{showBottomLine}}" bind:change="tabChangeHandle">
     <t-tab-panel wx:for="{{tabList}}" wx:for-index="index" wx:key="index" label="{{item.cate_name}}"
       value="{{item.cate_id}}" />
   </t-tabs>

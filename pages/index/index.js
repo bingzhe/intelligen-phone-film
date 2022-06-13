@@ -28,7 +28,8 @@ Page({
 
     phoneModal: "",
 
-    tabIndex: 1,
+    tabIndex: 100,
+    showBottomLine: true,
 
     searchValue: "",
 
@@ -43,13 +44,13 @@ Page({
   },
   onShareAppMessage() {
     return {
-      title: '卡陌牛 卡陌牛守护您的爱机',
-    }
+      title: "卡陌牛 卡陌牛守护您的爱机",
+    };
   },
   onShareTimeline() {
     return {
-      title: '卡陌牛 卡陌牛守护您的爱机',
-    }
+      title: "卡陌牛 卡陌牛守护您的爱机",
+    };
   },
   async getCateList() {
     const result = await getCateListApi();
@@ -60,20 +61,24 @@ Page({
       tabList: result.data,
     });
 
-    const firstCateId = (result.data[0] || {}).cate_id;
+    // const firstCateId = (result.data[0] || {}).cate_id;
 
-    if (firstCateId) {
-      this.setData({
-        tabIndex: firstCateId,
-      });
-    }
+    // if (firstCateId) {
+    //   this.setData({
+    //     tabIndex: firstCateId,
+    //   });
+    // }
 
     this.getGoodsList();
   },
   async getGoodsList() {
     const data = {
-      cate_id: this.data.tabIndex,
+      // cate_id: this.data.tabIndex,
     };
+
+    if (this.data.tabIndex !== 100) {
+      data.cate_id = this.data.tabIndex;
+    }
 
     if (this.data.searchType == 1 && this.data.searchValue) {
       data.name = this.data.searchValue;

@@ -11,9 +11,6 @@ const rootUrl = "https://kamoniu.qdidesign.com"; //1 卡陌牛 wxb68105ba7874703
 // const rootUrl = "https://bckj.qdidesign.com" //10 八彩科技 (八彩科技) wx436aef36b863a15e 
 
 
-
-
-
 import { request } from "./request";
 
 const getCateListApi = () => {
