@@ -42,6 +42,12 @@ const getNameListApi = (data) => {
   });
 };
 
+const getAnnouncementApi = (data) => {
+  return request(`${rootUrl}/api/Index/getAnnouncement`, data, "post", {
+    contentType: "form",
+  });
+};
+
 module.exports = {
   rootUrl,
   getCateListApi,
@@ -50,4 +56,5 @@ module.exports = {
   getPhoneNameApi,
   getGoodsCateApi,
   getNameListApi,
+  getAnnouncementApi,
 };

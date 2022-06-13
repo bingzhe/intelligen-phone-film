@@ -8,6 +8,7 @@ import {
   getPhoneNameApi,
   getGoodsCateApi,
   getNameListApi,
+  getAnnouncementApi,
 } from "../../api/api";
 
 Page({
@@ -41,12 +42,38 @@ Page({
     searchNameList: [],
 
     showTabs: true,
+
+    showNotice: false,
+    text: "",
+    animation: null,
+    timer: null,
+    duration: 0,
+    textWidth: 0,
+    wrapWidth: 0,
   },
   async onLoad() {
     await this.getDeviceInfo();
     this.getCateList();
     this.getBannerList();
     this.getGoodsCate();
+    this.getAnnouncement();
+  },
+  onShow() {
+    if (this.data.text) {
+      this.initAnimation(this.data.text);
+    }
+  },
+  onHide() {
+    this.destroyTimer();
+    this.setData({
+      timer: null,
+    });
+  },
+  onUnload() {
+    this.destroyTimer();
+    this.setData({
+      timer: null,
+    });
   },
   onShareAppMessage() {
     // return {
@@ -137,15 +164,8 @@ Page({
   async getDeviceInfo() {
     const deviceInfo = wx.getDeviceInfo();
 
-    // console.log("===========devicecInfo==========");
-    // console.log(JSON.stringify(deviceInfo));
-
     let model = deviceInfo.model;
     const system = deviceInfo.system;
-
-    // console.log("===========model,system==========");
-    // console.log(JSON.stringify(model));
-    // console.log(JSON.stringify(system));
 
     //单独处理 iPhone XS Max China-exclusive<iPhone11,6>
     model = model.replace(/China-exclusive/gm, "");
@@ -160,18 +180,10 @@ Page({
     const params = {
       name: model,
     };
-    // console.log("===========查机型接口 params==========");
-    // console.log(JSON.stringify(params));
 
     const result = await getPhoneNameApi(params);
 
-    // console.log("===========查机型接口 result==========");
-    // console.log(JSON.stringify(result));
-
     const phoneModal = result.data ? result.data : model;
-
-    // console.log("===========phoneModal==========");
-    // console.log(JSON.stringify(phoneModal));
 
     this.setData({ phoneModal: phoneModal });
   },
@@ -240,5 +252,82 @@ Page({
       searchType: 1,
     });
     this.getGoodsCate();
+  },
+  async getAnnouncement() {
+    const result = await getAnnouncementApi();
+
+    const list = result.data || [];
+
+    if (list.length > 0) {
+      this.setData({
+        showNotice: true,
+      });
+    }
+
+    const text = list.map((item, i) => `${i + 1}：${item.content}  `).join(" ");
+
+    this.setData({
+      text: text,
+    });
+
+    this.initAnimation(this.data.text);
+  },
+  /**
+   * 开启公告字幕滚动动画
+   * @param  {String} text 公告内容
+   * @return {[type]}
+   */
+  initAnimation(text) {
+    let that = this;
+    this.data.duration = 15000;
+    this.data.animation = wx.createAnimation({
+      duration: this.data.duration,
+      timingFunction: "linear",
+    });
+    let query = wx.createSelectorQuery();
+    query.select(".content-box").boundingClientRect();
+    query.select("#text").boundingClientRect();
+    query.exec((rect) => {
+      that.setData(
+        {
+          wrapWidth: rect[0].width,
+          textWidth: rect[1].width,
+        },
+        () => {
+          this.startAnimation();
+        }
+      );
+    });
+  },
+  // 定时器动画
+  startAnimation() {
+    //reset
+    // this.data.animation.option.transition.duration = 0
+    const resetAnimation = this.data.animation
+      .translateX(this.data.wrapWidth)
+      .step({ duration: 0 });
+    this.setData({
+      animationData: resetAnimation.export(),
+    });
+    // this.data.animation.option.transition.duration = this.data.duration
+    const animationData = this.data.animation
+      .translateX(-this.data.textWidth)
+      .step({ duration: this.data.duration });
+    setTimeout(() => {
+      this.setData({
+        animationData: animationData.export(),
+      });
+    }, 100);
+    const timer = setTimeout(() => {
+      this.startAnimation();
+    }, this.data.duration);
+    this.setData({
+      timer,
+    });
+  },
+  destroyTimer() {
+    if (this.data.timer) {
+      clearTimeout(this.data.timer);
+    }
   },
 });
