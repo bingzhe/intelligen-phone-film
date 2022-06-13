@@ -208,8 +208,8 @@
 }
 
 .sound-img {
-  height: 36rpx;
-  width: 70rpx;
+  height: 40rpx;
+  width: 78rpx;
   margin-right: 15rpx;
 }
 
@@ -260,5 +260,5 @@
 .content-text {
   color: #5e5e5e;
   white-space: nowrap;
-  font-size: 28rpx;
+  font-size: 30rpx;
 }
