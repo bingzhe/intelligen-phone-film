@@ -190,11 +190,11 @@ Page({
       this.setData({
         showNotice: true,
       });
+    } else {
+      return;
     }
 
-    const text = list
-      .map((item, i) => `${i + 1}：${item.content}  `)
-      .join(" ");
+    const text = list.map((item, i) => `${i + 1}：${item.content}  `).join(" ");
 
     this.setData({
       text: text,
