@@ -6,6 +6,7 @@ import {
   getGoodsListApi,
   getBannerListApi,
   getPhoneNameApi,
+  getAnnouncementApi,
 } from "../../api/api";
 
 Page({
@@ -36,11 +37,37 @@ Page({
     searchType: 2, // 1 输入框查询 2 本机查询
 
     rootUrl: rootUrl,
+
+    showNotice: false,
+    text: "",
+    animation: null,
+    timer: null,
+    duration: 0,
+    textWidth: 0,
+    wrapWidth: 0,
   },
   onLoad() {
     this.getDeviceInfo();
     this.getCateList();
     this.getBannerList();
+    this.getAnnouncement();
+  },
+  onShow() {
+    if (this.data.text) {
+      this.initAnimation(this.data.text);
+    }
+  },
+  onHide() {
+    this.destroyTimer();
+    this.setData({
+      timer: null,
+    });
+  },
+  onUnload() {
+    this.destroyTimer();
+    this.setData({
+      timer: null,
+    });
   },
   onShareAppMessage() {
     // return {
@@ -61,13 +88,13 @@ Page({
       tabList: result.data,
     });
 
-    // const firstCateId = (result.data[0] || {}).cate_id;
+    const firstCateId = (result.data[0] || {}).cate_id;
 
-    // if (firstCateId) {
-    //   this.setData({
-    //     tabIndex: firstCateId,
-    //   });
-    // }
+    if (firstCateId) {
+      this.setData({
+        tabIndex: firstCateId,
+      });
+    }
 
     this.getGoodsList();
   },
@@ -153,5 +180,86 @@ Page({
   tabChangeHandle(e) {
     this.setData({ tabIndex: e.detail.value });
     this.getGoodsList();
+  },
+  async getAnnouncement() {
+    const result = await getAnnouncementApi();
+
+    const list = result.data || [];
+
+    if (list.length > 0) {
+      this.setData({
+        showNotice: true,
+      });
+    }
+
+    const text = list
+      .map((item, i) => `${i + 1}：${item.content}。 `)
+      .join(" ");
+
+    this.setData({
+      text: text,
+    });
+
+    this.initAnimation(this.data.text);
+
+    console.log(result);
+  },
+  /**
+   * 开启公告字幕滚动动画
+   * @param  {String} text 公告内容
+   * @return {[type]}
+   */
+  initAnimation(text) {
+    let that = this;
+    this.data.duration = 15000;
+    this.data.animation = wx.createAnimation({
+      duration: this.data.duration,
+      timingFunction: "linear",
+    });
+    let query = wx.createSelectorQuery();
+    query.select(".content-box").boundingClientRect();
+    query.select("#text").boundingClientRect();
+    query.exec((rect) => {
+      that.setData(
+        {
+          wrapWidth: rect[0].width,
+          textWidth: rect[1].width,
+        },
+        () => {
+          this.startAnimation();
+        }
+      );
+    });
+  },
+  // 定时器动画
+  startAnimation() {
+    //reset
+    // this.data.animation.option.transition.duration = 0
+    const resetAnimation = this.data.animation
+      .translateX(this.data.wrapWidth)
+      .step({ duration: 0 });
+    this.setData({
+      animationData: resetAnimation.export(),
+    });
+    // this.data.animation.option.transition.duration = this.data.duration
+    const animationData = this.data.animation
+      .translateX(-this.data.textWidth)
+      .step({ duration: this.data.duration });
+    setTimeout(() => {
+      this.setData({
+        animationData: animationData.export(),
+      });
+    }, 100);
+    const timer = setTimeout(() => {
+      this.startAnimation();
+    }, this.data.duration);
+    this.setData({
+      timer,
+    });
+  },
+  destroyTimer() {
+    if (this.data.timer) {
+      clearTimeout(this.data.timer);
+    }
   },
 });
