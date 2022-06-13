@@ -279,7 +279,7 @@ Page({
    */
   initAnimation(text) {
     let that = this;
-    this.data.duration = 15000;
+    this.data.duration = 30000;
     this.data.animation = wx.createAnimation({
       duration: this.data.duration,
       timingFunction: "linear",
