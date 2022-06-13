@@ -193,7 +193,7 @@ Page({
     }
 
     const text = list
-      .map((item, i) => `${i + 1}：${item.content}。 `)
+      .map((item, i) => `${i + 1}：${item.content}  `)
       .join(" ");
 
     this.setData({
