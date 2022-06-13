@@ -1,5 +1,5 @@
 // 每次修改 1. appid 2.title 3.url 4.后台添加调用的https 5.分享标题修改
-const rootUrl = "https://kamoniu.qdidesign.com"; //1 卡陌牛 wxb68105ba7874703c
+// const rootUrl = "https://kamoniu.qdidesign.com"; //1 卡陌牛 wxb68105ba7874703c
 // const rootUrl = "https://kediya.qdidesign.com"; //2 科迪亚 (钢化膜平台) wxdfe38c922cea1383
 // const rootUrl = "https://mwgd.qdidesign.com" //3 M.SIR大猩猩钢化膜 (牧娃光电) wx41c12753b533b095 
 // const rootUrl = "https://xooxi.qdidesign.com" //4 xooxi 小犀 (xooxi 小犀) wx1008b8937e936d05 
@@ -8,7 +8,7 @@ const rootUrl = "https://kamoniu.qdidesign.com"; //1 卡陌牛 wxb68105ba7874703
 // const rootUrl = "https://lanxiaoxing.qdidesign.com" //7 蓝小猩保护膜 (蓝小猩保护膜) wx1596a7a03d23a332 
 // const rootUrl = "https://xhysm.qdidesign.com" //8 鑫桦宇数码科技 (鑫桦宇数码科技有限公司) wx75f72a7a5f898669 
 // const rootUrl = "https://hxdzkj.qdidesign.com" //9 和兴电子科技 (和兴电子科技) wx157122f47fc97d44 
-// const rootUrl = "https://bckj.qdidesign.com" //10 八彩科技 (八彩科技) wx436aef36b863a15e 
+const rootUrl = "https://bckj.qdidesign.com" //10 八彩科技 (八彩科技) wx436aef36b863a15e 
 
 
 import { request } from "./request";
