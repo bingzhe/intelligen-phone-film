@@ -262,6 +262,8 @@ Page({
       this.setData({
         showNotice: true,
       });
+    } else {
+      return;
     }
 
     const text = list.map((item, i) => `${i + 1}：${item.content}  `).join(" ");
