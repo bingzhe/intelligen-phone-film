@@ -43,14 +43,14 @@ Page({
     this.getBannerList();
   },
   onShareAppMessage() {
-    // return {
-    //   title: "卡陌牛 卡陌牛守护您的爱机",
-    // };
+    return {
+      title: "工厂直营金刚水凝膜、UV光固膜、方块切割膜、贴膜机、切膜机",
+    };
   },
   onShareTimeline() {
-    // return {
-    //   title: "卡陌牛 卡陌牛守护您的爱机",
-    // };
+    return {
+      title: "工厂直营金刚水凝膜、UV光固膜、方块切割膜、贴膜机、切膜机",
+    };
   },
   async getCateList() {
     const result = await getCateListApi();
