@@ -169,6 +169,9 @@ App({
     systemInfo: {},
     userInfo: null,
     pxMulti: 2,
+    version: "",
+    SDKVersion: "",
+    showNavStatus: true,
   },
   navbar: {
     title_height: "70", //自定义导航栏的总高度，单位为px
