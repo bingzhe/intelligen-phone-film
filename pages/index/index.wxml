@@ -1,5 +1,7 @@
 <wxs module="filter" src="./toLowerCase.wxs"></wxs>
 
+<component-navbar title_text="歌宸型号搜索" />
+
 <view class='notice' wx:if="{{showNotice}}">
   <view class="sound-icon-wrapper">
     <!-- <t-icon name="sound" size="xl" color="#e9491a" /> -->
@@ -29,9 +31,10 @@
     <text class="modal">{{phoneModal}}</text>
   </view>
   <view class="icon-wrapper" bind:tap="handleSearchCus">
-    <t-button theme="primary" theme="danger" t-class="search-cus-button" bind:tap="handleSearchCus" icon="arrow-down">
-      对应的贴膜</t-button>
+    <!-- <t-button theme="primary" theme="danger" t-class="search-cus-button" bind:tap="handleSearchCus" icon="arrow-down">
+      对应的贴膜</t-button> -->
     <!-- <t-icon name="chevron-right" size="xl" color="#999" /> -->
+    <t-image src="../../../assets/images/search-btn.jpg" t-class="t-image__search-btn" bind:tap="navToActivityDetail" />
   </view>
 </view>
 

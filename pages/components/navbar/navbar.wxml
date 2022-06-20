@@ -1,0 +1,13 @@
+<view style="height:{{title_height}}px;" class="outBox" wx:if="{{ showNavStatus }}">
+    <view class="title" style="height:{{title_height}}px;padding-top:{{statusbarHeight}}px;">
+        <view class="{{system=='ios'? 'title_icon':'title_icon_ad'}}" wx:if="{{showIcon}}"
+            style="height:{{titleIcon_height}}px;">
+            <!-- <image class="navIncon" wx:if="{{showBack}}" bindtap="_goBack" style="height:44rpx;width:24rpx" src="/asset/icon/back.png"></image>       -->
+            <view class="floatL"></view>
+            <!-- <image class="navIncon" wx:if="{{showHome}}" bindtap="_goHome" style="height:25px;width:25px"src="https://assets.aleqipei.com/wxapp/images/home/home.png"></image>   
+            <view class="floatL"></view>      -->
+        </view>
+        <view class="{{system=='ios'? 'title_text':'title_text_ad'}} {{ system == 'iosX'? 'title_text_iosX':''}}">{{
+            title_text }}</view>
+    </view>
+</view>

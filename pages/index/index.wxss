@@ -13,6 +13,11 @@
   border-radius: 20rpx;
 }
 
+.t-image__search-btn {
+  height: 80rpx;
+  width: 80rpx;
+}
+
 .phone-modal-wrapper {
   display: flex;
   justify-content: space-between;
@@ -27,7 +32,7 @@
 
 .phone-modal-wrapper .modal-wrapper .tag {
   font-size: 12px;
-  background: red;
+  background: #0594fa;
   color: #fff;
   padding: 5rpx 10rpx;
   border-radius: 6rpx;
@@ -50,7 +55,7 @@
 .search-wrapper .t-search__input-container {
   /* border-radius: 32rpx !important; */
   /* height: 64rpx !important; */
-  border: 1px solid #0052d9 !important;
+  border: 1px solid #0594fa !important;
   border-radius: 8rpx 0 0 8rpx !important;
 }
 
@@ -62,6 +67,8 @@
 .search-button {
   width: 160rpx !important;
   border-radius: 0 8rpx 8rpx 0 !important;
+  background: #0594fa !important;
+  border-color: #0594fa !important;
 }
 
 .tabs-wrapper {
@@ -88,7 +95,7 @@
   min-width: 165rpx;
 }
 .tabs-wrapper .tab .order-nav-item.active {
-  color: #fa550f !important;
+  color: #0594fa !important;
 }
 
 .tabs-wrapper .tab .bottom-line {
@@ -96,7 +103,7 @@
 }
 
 .tabs-wrapper .tab .order-nav-item.active .bottom-line {
-  background-color: #fa550f !important;
+  background-color: #0594fa !important;
 }
 
 .tabs-wrapper .t-class-item {
@@ -105,7 +112,7 @@
 }
 
 .tabs-wrapper .t-class-track {
-  background-color: #fa4126 !important;
+  background-color: #0594fa !important;
   height: 6rpx !important;
   border-radius: 4rpx !important;
   width: 48rpx !important;
@@ -149,7 +156,7 @@
   font-size: 14px;
   /* border: 1px solid #0052d9; */
   color: #fff;
-  background: #ff5454;
+  background: #0594fa;
   border-radius: 8rpx;
   padding: 8rpx;
 }
@@ -177,7 +184,7 @@
   border-radius: 8rpx;
 }
 .film-content .phone-modal-list .modal.select {
-  background: #fa4126;
+  background: #0594fa;
   color: #fff;
 }
 

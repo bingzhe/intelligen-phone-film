@@ -9,7 +9,8 @@
 // const rootUrl = "http://120.76.132.111:39888" //8 鑫桦宇数码科技 (鑫桦宇数码科技有限公司) wx75f72a7a5f898669
 // const rootUrl = "http://120.76.132.111:39555" //9 和兴电子科技 (和兴电子科技) wx157122f47fc97d44
 // const rootUrl = "http://120.76.132.111:39111" //10 八彩科技 (八彩科技) wx436aef36b863a15e
-const rootUrl = "https://kamoniu.shouchuangtx.cn/"; // 歌宸型号搜索 (歌宸型号搜索) wx9441a66206aaa235
+// const rootUrl = "https://kamoniu.shouchuangtx.cn"; // 歌宸型号搜索 (歌宸型号搜索) wx9441a66206aaa235
+const rootUrl = "https://kamoniu.shouchuangtx.cn"; // 歌宸型号搜索 (歌宸型号搜索) wx9441a66206aaa235
 
 import { request } from "./request";
 

@@ -1,4 +1,5 @@
 {
+  "navigationStyle": "custom",
   "usingComponents": {
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
     "t-swiper-item": "tdesign-miniprogram/swiper/swiper-item",
@@ -8,6 +9,7 @@
     "t-tab-panel": "tdesign-miniprogram/tabs/tab-panel",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "t-search": "tdesign-miniprogram/search/search",
-    "t-button": "tdesign-miniprogram/button/button"
+    "t-button": "tdesign-miniprogram/button/button",
+    "component-navbar": "/pages/components/navbar/navbar"
   }
 }
