@@ -2,9 +2,9 @@
   "pages": ["pages/index/index"],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "科迪亚供应链管理",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#0594fa",
+    "navigationBarTitleText": "歌宸型号搜索",
+    "navigationBarTextStyle": "white"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
