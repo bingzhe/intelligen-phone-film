@@ -166,6 +166,7 @@ App({
     return 0;
   },
   globalData: {
+    systemInfo: {},
     userInfo: null,
     pxMulti: 2,
   },
