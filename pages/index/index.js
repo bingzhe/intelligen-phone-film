@@ -219,13 +219,6 @@ Page({
     this.getGoodsList();
   },
   async getAnnouncement() {
-    // TODO
-    this.setData({
-      text: "1。龔龔龔龔龔龔龔龔龔龔 。2共ogsaadad但动；速度",
-      showNotice: true,
-    });
-    this.initAnimation(this.data.text);
-
     const result = await getAnnouncementApi();
 
     const list = result.data || [];
