@@ -37,40 +37,51 @@
 
 <view class="search-wrapper">
   <t-search model:value="{{searchValue}}" t-class-input="t-search__input"
-    t-class-input-container="t-search__input-container" placeholder="请输入手机型号">
+    t-class-input-container="t-search__input-container" placeholder="请输入手机型号" bind:change="handleSearchChange"
+    bind:clear="handleSearchChange">
     <t-button theme="primary" slot="action-text" t-class="search-button" bind:tap="handleSearchClick">搜索</t-button>
   </t-search>
 </view>
 
-<view class="tabs-wrapper">
-  <t-tabs t-class="t-tabs" t-class-active="t-class-item" t-class-track="t-class-track" value="{{tabIndex}}"
-    show-bottom-line="{{showBottomLine}}" bind:change="tabChangeHandle">
-    <t-tab-panel wx:for="{{tabList}}" wx:for-index="index" wx:key="index" label="{{item.cate_name}}"
-      value="{{item.cate_id}}" />
-  </t-tabs>
+<view wx:if="{{!showTabs}}" class="search-list-wrapper">
+  <view wx:for="{{searchNameList}}" wx:for-item="name" class="search-name-item" bind:tap="handleSearchNameItemClick"
+    data-name="{{name}}">
+    <text wx:for="{{name}}"
+      class="{{filter.toLowerCase(item)===filter.toLowerCase(searchValue)?'is-color':''}}">{{item}}</text>
+  </view>
 </view>
 
-<view class="film-list-wrapper">
-  <view class="film-item" wx:for="{{list}}" wx:key="index">
-    <view class="film-icon-wrapper">
-      <view>
-        <t-image t-class="goods-img" src="{{rootUrl}}{{item.goods_img}}"></t-image>
-        <view class="goods-name">{{item.goods_name}}</view>
+<view wx:if="{{showTabs}}">
+  <view class="tabs-wrapper">
+    <t-tabs t-class="t-tabs" t-class-active="t-class-item" t-class-track="t-class-track" value="{{tabIndex}}"
+      show-bottom-line="{{showBottomLine}}" bind:change="tabChangeHandle">
+      <t-tab-panel wx:for="{{tabList}}" wx:for-index="index" wx:key="index" label="{{item.cate_name}}"
+        value="{{item.cate_id}}" />
+    </t-tabs>
+  </view>
+
+  <view class="film-list-wrapper">
+    <view class="film-item" wx:for="{{list}}" wx:key="index">
+      <view class="film-icon-wrapper">
+        <view>
+          <t-image t-class="goods-img" src="{{rootUrl}}{{item.goods_img}}"></t-image>
+          <view class="goods-name">{{item.goods_name}}</view>
+        </view>
       </view>
-    </view>
-    <view class="film-content">
-      <view class="film-title">{{item.cate_name}}</view>
-      <view class="phone-modal-list">
-        <view class="modal {{modal.is_checked == 1 ? 'select' :''}}" wx:for="{{item.spec_list}}" wx:for-item="modal"
-          wx:key="index">
-          {{modal.spec_name}}
+      <view class="film-content">
+        <view class="film-title">{{item.cate_name}}</view>
+        <view class="phone-modal-list">
+          <view class="modal {{modal.is_checked == 1 ? 'select' :''}}" wx:for="{{item.spec_list}}" wx:for-item="modal"
+            wx:key="index">
+            {{modal.spec_name}}
+          </view>
         </view>
       </view>
     </view>
   </view>
-</view>
 
-<view class="film-list-empty" wx:if="{{list.length === 0}}">
-  <t-image src="../../../assets/images/empty-list.png" t-class="empty-class"></t-image>
-  <view class="empty-tip">暂无该手机型号膜</view>
+  <view class="film-list-empty" wx:if="{{list.length === 0}}">
+    <t-image src="../../../assets/images/empty-list.png" t-class="empty-class"></t-image>
+    <view class="empty-tip">暂无该手机型号膜</view>
+  </view>
 </view>

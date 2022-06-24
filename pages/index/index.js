@@ -6,6 +6,7 @@ import {
   getGoodsListApi,
   getBannerListApi,
   getPhoneNameApi,
+  getNameListApi,
   getAnnouncementApi,
 } from "../../api/api";
 
@@ -168,7 +169,63 @@ Page({
     this.setData({ tabIndex: e.detail.value });
     this.getGoodsList();
   },
+  handleSearchClear() {
+    this.setData({
+      searchNameList: [],
+      showTabs: true,
+    });
+  },
+  async handleSearchChange(e) {
+    const name = e.detail.value;
+
+    if (name) {
+      this.setData({
+        showTabs: false,
+      });
+    } else {
+      this.setData({
+        showTabs: true,
+      });
+    }
+
+    const params = { name };
+
+    const result = await getNameListApi(params);
+    if (result.code !== 200) return;
+
+    const getInf = (str, key) =>
+      str.replace(new RegExp(`${key}`, "gi"), `%%$&%%`).split("%%");
+
+    const nameList = result.data.map((item) => {
+      return getInf(item, this.data.searchValue);
+    });
+
+    this.setData({
+      searchNameList: nameList,
+    });
+  },
+  handleSearchNameItemClick(e) {
+    const nameArr = e.currentTarget.dataset.name || [];
+    const name = nameArr.join("");
+
+    this.setData({
+      searchValue: name,
+      showTabs: true,
+    });
+
+    this.setData({
+      searchType: 1,
+    });
+    this.getGoodsList();
+  },
   async getAnnouncement() {
+    // TODO
+    this.setData({
+      text: "1。龔龔龔龔龔龔龔龔龔龔 。2共ogsaadad但动；速度",
+      showNotice: true,
+    });
+    this.initAnimation(this.data.text);
+
     const result = await getAnnouncementApi();
 
     const list = result.data || [];
