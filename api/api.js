@@ -9,7 +9,7 @@
 // const rootUrl = "https://xhysm.qdidesign.com" //8 鑫桦宇数码科技 (鑫桦宇数码科技有限公司) wx75f72a7a5f898669 
 // const rootUrl = "https://hxdzkj.qdidesign.com" //9 和兴电子科技 (和兴电子科技) wx157122f47fc97d44 
 // const rootUrl = "https://bckj.qdidesign.com" //10 八彩科技 (八彩科技) wx436aef36b863a15e 
-const rootUrl = "http://47.106.118.123" //11 雄翼 (东莞市雄翼科技有限公司) wxd9d4dca5215adc1a 
+const rootUrl = "https://www.xiongyikeji.com" //11 雄翼 (东莞市雄翼科技有限公司) wxd9d4dca5215adc1a 
 
 
 
