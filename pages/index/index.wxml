@@ -1,3 +1,18 @@
+<wxs module="filter" src="./toLowerCase.wxs"></wxs>
+
+<view class='notice' wx:if="{{showNotice}}">
+  <view class="sound-icon-wrapper">
+    <!-- <t-icon name="sound" size="xl" color="#e9491a" /> -->
+    <image class="sound-img" src="../../assets/images/sound.png"></image>
+  </view>
+  <view class="left-box">
+    <view class='content-box'>
+      <view class='content-text' animation="{{animationData}}"><text id="text">{{text}}</text></view>
+    </view>
+    <view class="right-text"></view>
+  </view>
+</view>
+
 <view class="swiper-wrap">
   <t-swiper wx:if="{{imgSrcs.length > 0}}" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}"
     interval="{{interval}}" navigation="{{navigation}}">
