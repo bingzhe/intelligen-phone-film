@@ -13,6 +13,7 @@ App({
       },
     });
 
+    const self = this;
     wx.getSystemInfo({
       success: (res) => {
         self.globalData.version = res.version;

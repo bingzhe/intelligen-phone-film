@@ -191,6 +191,7 @@ Page({
   handleSearchClick() {
     this.setData({
       searchType: 1,
+      showTabs: true,
     });
     this.getGoodsList();
   },

@@ -27,7 +27,7 @@
 
 <view class="phone-modal-wrapper">
   <view class="modal-wrapper">
-    <text class="tag">本机</text>
+    <text class="tag">本机型号</text>
     <text class="modal">{{phoneModal}}</text>
   </view>
   <view class="icon-wrapper" bind:tap="handleSearchCus">
@@ -68,7 +68,7 @@
       <view class="film-icon-wrapper">
         <view>
           <t-image t-class="goods-img" src="{{rootUrl}}{{item.goods_img}}"></t-image>
-          <view class="goods-name">{{item.goods_name}}</view>
+          <!-- <view class="goods-name">{{item.goods_name}}</view> -->
         </view>
       </view>
       <view class="film-content">
