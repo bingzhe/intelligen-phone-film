@@ -193,3 +193,9 @@
   background: #0594fa !important;
   border-color: #0594fa !important;
 }
+
+.to-video-btn {
+  margin: 10rpx 30rpx;
+  font-size: 26rpx;
+  color: #0594fa;
+}

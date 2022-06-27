@@ -1,0 +1,9 @@
+/* pages/video/video.wxss */
+
+.video-list-wrapper {
+  padding: 20rpx 40rpx;
+}
+
+.video {
+  width: 100%;
+}

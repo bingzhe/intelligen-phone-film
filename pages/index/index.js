@@ -154,4 +154,9 @@ Page({
     this.setData({ tabIndex: e.detail.value });
     this.getGoodsList();
   },
+  handleToVideo() {
+    wx.navigateTo({
+      url: "/pages/video/video",
+    });
+  },
 });
