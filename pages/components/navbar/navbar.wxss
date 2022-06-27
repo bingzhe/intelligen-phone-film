@@ -10,7 +10,7 @@
   /* display: flex;
   align-items:center; */
   /* background: linear-gradient(315deg, #2f64ff 0%, #52bbff 100%, #52bbff 100%); */
-  background: #0594fa;
+  background: #23b7eb;
 }
 .title_text {
   position: absolute;
