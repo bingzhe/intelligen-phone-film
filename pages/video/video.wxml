@@ -1,6 +1,6 @@
 <view wx:for="{{videoList}}" class="video-list-wrapper">
-    <video class="video" src="{{item.fullUrl}}" title="{{item.video_title}}"></video>
     <t-divider t-class="t-divider-class" t-class-content="t-class-content">
         <text slot="content">{{item.video_title}}</text>
     </t-divider>
+    <video class="video" src="{{item.fullUrl}}" title="{{item.video_title}}"></video>
 </view>
