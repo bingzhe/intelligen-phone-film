@@ -20,7 +20,11 @@
   </view>
 </view>
 
-<view class="to-video-btn" bind:tap="handleToVideo">查看视频教程</view>
+<view class="to-video-btn">
+  <!-- <text class="video-btn"></text> -->
+  <t-button theme="primary" theme="danger" t-class="search-cus-button" bind:tap="handleToVideo">
+    查看视频教程</t-button>
+</view>
 
 <view class="search-wrapper">
   <t-search model:value="{{searchValue}}" t-class-input="t-search__input"

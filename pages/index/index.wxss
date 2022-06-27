@@ -195,7 +195,18 @@
 }
 
 .to-video-btn {
+  display: flex;
+  justify-content: flex-end;
   margin: 10rpx 30rpx;
-  font-size: 26rpx;
-  color: #0594fa;
+  /* font-size: 28rpx;
+  color: #0594fa; */
 }
+
+/* .to-video-btn .video-btn {
+  font-size: 12px;
+  background: red;
+  color: #fff;
+  padding: 5rpx 10rpx;
+  border-radius: 6rpx;
+  margin-right: 10rpx;
+} */
