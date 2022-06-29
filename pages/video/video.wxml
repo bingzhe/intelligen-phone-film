@@ -1,0 +1,8 @@
+<view class="video-page">
+    <view wx:for="{{videoList}}" class="video-list-wrapper">
+        <video class="video" src="{{item.fullUrl}}" title="{{item.video_title}}"></video>
+        <view class="video-title">
+            {{item.video_title}}
+        </view>
+    </view>
+</view>

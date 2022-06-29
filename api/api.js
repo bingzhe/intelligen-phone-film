@@ -42,6 +42,12 @@ const getAnnouncementApi = (data) => {
   });
 };
 
+const getVideoListApi = (data) => {
+  return request(`${rootUrl}/api/Index/getVideo`, data, "post", {
+    contentType: "form",
+  });
+};
+
 module.exports = {
   rootUrl,
   getCateListApi,
@@ -50,4 +56,5 @@ module.exports = {
   getPhoneNameApi,
   getNameListApi,
   getAnnouncementApi,
+  getVideoListApi
 };

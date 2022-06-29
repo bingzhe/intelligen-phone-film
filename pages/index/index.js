@@ -297,4 +297,9 @@ Page({
       clearTimeout(this.data.timer);
     }
   },
+  handleToVideo() {
+    wx.navigateTo({
+      url: "/pages/video/video",
+    });
+  },
 });

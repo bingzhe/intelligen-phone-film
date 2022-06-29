@@ -35,6 +35,10 @@
   </view>
 </view>
 
+<view class="to-video-btn">
+  <text class="video-btn" bind:tap="handleToVideo">查看视频教程</text>
+</view>
+
 <view class="search-wrapper">
   <t-search model:value="{{searchValue}}" t-class-input="t-search__input"
     t-class-input-container="t-search__input-container" placeholder="请输入手机型号" bind:change="handleSearchChange"
